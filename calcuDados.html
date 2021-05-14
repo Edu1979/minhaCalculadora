@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<style>
+body {
+background-color:pink;
+width:800px;
+height:800px;
+font-family:arial;
+font-size:12px;
+}
+	#titPrin {
+	text-align:center;
+	}
+	
+	
+	
+	#topo {
+	background-color:white;
+	width:600px;
+	height:800px;
+	padding:10px;
+	font-size:12px;
+
+	}
+
+	#quest {
+	background-color:light blue;
+	width:450px;
+	height:150px;
+	margin-left:70px;
+	padding:10px;
+	text-align:justify;
+	font-size:12px;
+	}
+	
+	#tit {
+	text-align:center;
+	
+	}
+	
+	#orca{
+	background-color:white;
+	width:450px;
+	height:400px;
+	margin-top:40px;
+	margin-left:70px;
+	padding:15px;
+	font-size:12px;
+	
+	}
+	
+		# nomAnun {
+		box-shadow:none;
+		}
+	#topo input  {
+	background-color:white;
+	border-radius: 5px;
+	}
+	
+</style>
+
+<script>
+function boasvindas() {
+   var client = document.getElementById('client').value;
+   var msg =  client 
+   if (client == "") {
+            alert("Favor informar o seu nome!");
+            return false;   
+		}
+   document.getElementById('orcClient').value = msg;
+   
+   
+   var anun = document.getElementById('anun').value;
+   var msg1 =  anun 
+   if (anun == "") {
+            alert("Favor informar o nome do anuncio!");
+            return false;   
+		}
+   document.getElementById('orcClient1').value = msg1;
+   
+   
+  var dataUm = new Date(document.getElementById("dataUm").value);
+  var msg2 =  dataUm
+   document.getElementById('orcClient2').value = msg2;
+   
+    var dataDois = new Date(document.getElementById("dataDois").value);
+	var msg3 =  dataDois
+   document.getElementById('orcClient3').value = msg3;
+   
+    return parseInt((dataUm - dataDois) / (24 * 3600 * 1000));
+  	
+}
+
+
+function chamar(){
+    document.getElementById("numeroDias").value = isNaN(boasvindas()) ? "Selecione a outra data" :boasvindas();  
+	
+	var grana = document.getElementById("numeroDias").value;
+	var msg4 = grana * 24
+	document.getElementById('orcClient4').value = msg4;
+	
+	var grana1 = document.getElementById("orcClient4").value;
+	var msg5 = (grana1 * 30)*24;
+	document.getElementById('orcClient5').value = msg5;
+	
+	var grana2 = document.getElementById("orcClient5").value;
+	var msg6 = grana2 / grana;
+	document.getElementById('orcClient6').value = msg6;
+	
+	var grana3 = document.getElementById("orcClient5").value;
+	var msg7 = msg5 * 0.12;
+	document.getElementById('orcClient7').value = msg7;
+}
+   
+   
+   
+   
+</script>
+</head>
+
+
+<body>
+
+<div id="topo">
+<div id="titPrin"><h1>Dados do Anuncio<h1><div>
+<div id="quest">
+<br>
+<input type="text" name="client" id="client" placeholder="Digite seu nome" style="width:400px"><br>
+<input type="text" name="anun" id="anun" placeholder="Digite o titulo do seu anuncio" style="width:400px"><br>
+Data de inicio da publicação   <input type="date" class="textbox" id="dataDois" onchange="chamar()"><br>
+Data de termino da publicação  <input type="date" class="textbox" id="dataUm" onchange="chamar()"/><br>
+Calcular Anuncio<input type="button" onclick="boasvindas()" style="width:10px height:10px" ><br>
+</div>
+<div id="tit"><h2>Estimativa</h2></div>
+<div id="orca">
+<div id="nomAnun">TITULO DO ANUNCIO <input type="text" name="orcClient" id="orcClient" style="width:400px" readonly></div><br>
+<div id="nomClient">CLIENTE <input type="text" name="orcClient1" id="orcClient1" style="width:400px" readonly></div><br>
+<div id="inc">DATA DE INICIO <input type="text" name="orcClient2" id="orcClient2" style="width:280px" readonly></div><br>
+<div id="term">DATA TERMINO <input type="text" name="orcClient3" id="orcClient3" style="width:282px" readonly></div><br>
+<div id="diaOrc">PUBLICAÇÃO <input type="text" class="textbox" id="numeroDias" style="width:30px" name="numdays" readonly> DIAS</div><br>
+<div id="val">INVESTIMENTO DE R$ 24,00 POR DIA TOTAL DE R$<input type="text" style="width:40px" name="orcClient4" id="orcClient4" readonly>,00</div><br>
+<div id="views">TOTAL DE VISUALIZAÇÕES  <input type="text" style="width:100px" name="orcClient5" id="orcClient5" readonly></div><br>
+<div id="viPoDia">VISUALIZAÇÕES POR DIA <input type="text" style="width:110px" name="orcClient6" id="orcClient6" readonly></div><br>
+<div id="clique">MEDIA DE CLICKS <input type="text" style="width:164px" name="orcClient7" id="orcClient7" readonly></div><br>
+</div>
+
+</div>
+
+</body>
+</html>
